@@ -29,7 +29,7 @@ class JenkinsJobManagerTests extends GroovyTestCase {
             jenkinsJobManager.findRequiredTemplateJobs(allJobNames)
         }
 
-        assert result == "Unable to find any jobs matching template regex: ^(myproj-[^-]*)-(master)\$\nYou need at least one job to match the templateJobPrefix and templateBranchName suffix arguments. Expression: (templateJobs?.size() > 0)"
+        assert result == "Unable to find any jobs matching template regex: ^(myproj.*)(master)\$\nYou need at least one job to match the templateJobPrefix and templateBranchName suffix arguments. Expression: (templateJobs?.size() > 0)"
     }
 
 

@@ -5,7 +5,7 @@ class BranchView {
     String branchName
 
     public String getViewName() {
-        return "$templateJobPrefix-$safeBranchName"
+        return "$templateJobPrefix$safeBranchName"
     }
 
     public String getSafeBranchName() {

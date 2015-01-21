@@ -8,7 +8,7 @@ class TemplateJob {
     String jobNameForBranch(String branchName) {
         // git branches often have a forward slash in them, but they make jenkins cranky, turn it into an underscore
         String safeBranchName = branchName.replaceAll('/', '_')
-        return "$baseJobName-$safeBranchName"
+        return "$baseJobName$safeBranchName"
     }
     
     ConcreteJob concreteJobForBranch(String branchName) {
