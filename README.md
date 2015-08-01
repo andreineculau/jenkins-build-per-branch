@@ -40,10 +40,10 @@ I currently use something like this
 -DtemplateJobPrefix=testing-my-repo-
 -DtemplateBranchName=Xbranch
 -DbranchNameRegex=master|v.*
--DenableOnCreate=true
+-DenableJobRegex=.*
 ```
 
-**NOTE**: `testing-my-repo-Xbranch-sync-with-repo` is disabled, but has cronjob builder/poller, so that the new jobs based on it, will be enabled and will start on their own.
+**NOTE**: `testing-my-repo-Xbranch-sync-with-repo` is disabled, but has cronjob builder/poller, so that the new jobs based on it, will be enabled at once and will start on their own.
 
 ## Change log
 
