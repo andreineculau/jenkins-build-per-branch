@@ -49,6 +49,10 @@ I currently use something like this
 
 ## Change log
 
+### Upcoming
+
+* Gradle 2.5
+
 ### 2015-08-01 - v2.0
 
 * remove `noDelete`, `noViews` in favour of `deleteOld`, `views` - no double negations
