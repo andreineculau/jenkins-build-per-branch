@@ -45,6 +45,21 @@ I currently use something like this
 
 **NOTE**: `testing-my-repo-Xbranch-sync-with-repo` is disabled, but has cronjob builder/poller, so that the new jobs based on it, will be enabled and will start on their own.
 
+## Change log
+
+### 2015-08-01 - v2.0
+
+* remove `noDelete`, `noViews` in favour of `deleteOld`, `views` - no double negations
+
+### 2015-08-01 - v1.0
+
+* based on upstream [547230eec39135a548b5ffacf8ee95e6577c56e3](https://github.com/entagen/jenkins-build-per-branch/commit/547230eec39135a548b5ffacf8ee95e6577c56e3)
+* change `startOnCreate` to take a non-Boolean value to allow `buildWithParameters`, pass a token or a cause [PR](https://github.com/entagen/jenkins-build-per-branch/pull/34)
+* less assumptions in the regex
+* replace branch occurences, not job occurences
+* new `allowSelfsignedSslCerts` - add support for self signed certificates [PR](https://github.com/entagen/jenkins-build-per-branch/pull/40)
+* new `enable-job-regex`, `disable-job-regex` - enable or disable jobs based on regex [PR](https://github.com/entagen/jenkins-build-per-branch/pull/65)
+
 ## Original docs
 
 [README.original.md](README.original.md)
