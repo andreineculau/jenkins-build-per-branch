@@ -34,6 +34,7 @@ All available **Switches** can be found in the source-code [here](src/main/groov
 I currently use something like this
 
 ```
+-DnoDelete=true
 -DnoViews=true
 -DjenkinsUrl=https://example.com/jenkins
 -DallowSelfsignedSslCerts=true
