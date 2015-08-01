@@ -67,11 +67,16 @@ class JenkinsApi {
     }
 
     void startJob(ConcreteJob job, String method) {
+        // Handle method being startOnCreate for backward compatibility
         if (method == "true" || method == "1") {
             method = "build"
+        } else if (method == "false" || method == "0") {
+            method = ""
         }
-        println "Starting job ${job.jobName}."
-        post('job/' + job.jobName + '/' + method)
+        if (method) {
+            println "Starting job ${job.jobName}: ${method}"
+            post('job/' + job.jobName + '/' + method)
+        }
     }
 
     String configForMissingJob(ConcreteJob missingJob, List<TemplateJob> templateJobs) {
