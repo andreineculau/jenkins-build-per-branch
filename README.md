@@ -34,8 +34,6 @@ All available **Switches** can be found in the source-code [here](src/main/groov
 I currently use something like this
 
 ```
--DnoDelete=true
--DnoViews=true
 -DjenkinsUrl=https://example.com/jenkins
 -DallowSelfsignedSslCerts=true
 -DgitUrl=git@example.com:repo.git
@@ -46,8 +44,6 @@ I currently use something like this
 ```
 
 **NOTE**: `testing-my-repo-Xbranch-sync-with-repo` is disabled, but has cronjob builder/poller, so that the new jobs based on it, will be enabled and will start on their own.
-
-**NOTE**: if you use this for branches that eventually get deleted, and you would like `jenkins-build-per-branch` to delete jobs for those pruned branches set `noDelete=false` AND MAKE SURE TO RENAME `testing-my-repo-Xbranch-sync-with-repo` to e.g. `sync-with-repo-testing-my-repo-Xbranch`, or else it will think `Xbranch-sync-with-repo` is a branch that doesn't exist anymore.
 
 ## Original docs
 

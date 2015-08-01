@@ -16,8 +16,8 @@ class JenkinsJobManager {
     Boolean allowSelfsignedSslCerts = false
 
     Boolean dryRun = false
-    Boolean noViews = false
-    Boolean noDelete = false
+    Boolean views = false
+    Boolean deleteOld = false
 
     JenkinsApi jenkinsApi
     GitApi gitApi
@@ -41,7 +41,7 @@ class JenkinsJobManager {
         syncJobs(allBranchNames, allJobNames, templateJobs)
 
         // create any missing branch views, scoped within a nested view if we were given one
-        if (!noViews) {
+        if (views) {
             syncViews(allBranchNames)
         }
     }
@@ -52,7 +52,7 @@ class JenkinsJobManager {
         List<ConcreteJob> expectedJobs = this.expectedJobs(templateJobs, nonTemplateBranchNames)
 
         createMissingJobs(expectedJobs, currentTemplateDrivenJobNames, templateJobs)
-        if (!noDelete) {
+        if (deleteOld) {
             deleteDeprecatedJobs(currentTemplateDrivenJobNames - expectedJobs.jobName)
         }
     }
@@ -117,7 +117,7 @@ class JenkinsJobManager {
         List<BranchView> missingBranchViews = expectedBranchViews.findAll { BranchView branchView -> !existingViewNames.contains(branchView.viewName)}
         addMissingViews(missingBranchViews)
 
-        if (!noDelete) {
+        if (deleteOld) {
             List<String> deprecatedViewNames = getDeprecatedViewNames(existingViewNames, expectedBranchViews)
             deleteDeprecatedViews(deprecatedViewNames)
         }
