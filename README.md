@@ -45,7 +45,9 @@ I currently use something like this
 -DenableOnCreate=true
 ```
 
-NOTE: `testing-my-repo-Xbranch-sync-with-repo` is disabled, but has cronjob builder/poller, so that the new jobs based on it, will be enabled and will start on their own.
+**NOTE**: `testing-my-repo-Xbranch-sync-with-repo` is disabled, but has cronjob builder/poller, so that the new jobs based on it, will be enabled and will start on their own.
+
+**NOTE**: if you use this for branches that eventually get deleted, and you would like `jenkins-build-per-branch` to delete jobs for those pruned branches set `noDelete=false` AND MAKE SURE TO RENAME `testing-my-repo-Xbranch-sync-with-repo` to e.g. `sync-with-repo-testing-my-repo-Xbranch`, or else it will think `Xbranch-sync-with-repo` is a branch that doesn't exist anymore.
 
 ## Original docs
 
