@@ -25,7 +25,7 @@ Create a freestyle project
 * point to this `jenkins-build-per-branch` URL and the latest tag (it's not safe to use branch names!)
 * under **Build Triggers**, you could go for **Build periodically** and `@midnight`
 * under **Build**, add a `Invoke Gradle script`
-* I currently use Gradle 2.4
+* I currently use Gradle 2.5
 * under **Tasks**, write `syncWithRepo`
 * under **Switches** add one per line, in this format `-D<name>=<value>`
 
