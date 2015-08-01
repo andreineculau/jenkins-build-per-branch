@@ -10,6 +10,8 @@ It allows you to have a template job configured for one branch, and automaticall
 * [Jenkins Gradle plugin][http://wiki.jenkins-ci.org/display/JENKINS/Gradle+Plugin]
 * [Nested View Plugin][https://wiki.jenkins-ci.org/display/JENKINS/Nested+View+Plugin] (optional, see [original docs](README.original.md) for info)
 
+Before moving on, go to **Manage Jenkins > Configure System** and add a Gradle installation. I currently use Gradle 2.5.
+
 ## Installation
 
 Imagine you have already a job suffixed with the branch name/placeholder, like this:
@@ -25,7 +27,7 @@ Create a freestyle project
 * point to this `jenkins-build-per-branch` URL and the latest tag (it's not safe to use branch names!)
 * under **Build Triggers**, you could go for **Build periodically** and `@midnight`
 * under **Build**, add a `Invoke Gradle script`
-* I currently use Gradle 2.5
+* select Gradle version, so it will be installed automatically
 * under **Tasks**, write `syncWithRepo`
 * under **Switches** add one per line, in this format `-D<name>=<value>`
 
