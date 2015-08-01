@@ -10,6 +10,8 @@ class JenkinsJobManager {
     String viewRegex
     String jenkinsUser
     String jenkinsPassword
+    String enableJobRegex
+    String disableJobRegex
     String startOnCreate
     Boolean allowSelfsignedSslCerts = false
 
@@ -61,8 +63,8 @@ class JenkinsJobManager {
 
         for(ConcreteJob missingJob in missingJobs) {
             println "Creating missing job: ${missingJob.jobName} from ${missingJob.templateJob.jobName}"
-            jenkinsApi.cloneJobForBranch(missingJob, templateJobs)
-            if (startOnCreate) {
+            boolean enabled = jenkinsApi.cloneJobForBranch(missingJob, templateJobs, enableJobRegex, disableJobRegex)
+            if (enabled && startOnCreate) {
                 jenkinsApi.startJob(missingJob, startOnCreate)
             }
         }
