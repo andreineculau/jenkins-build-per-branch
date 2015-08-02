@@ -47,6 +47,8 @@ I currently use something like this
 
 **NOTE**: `testing-my-repo-Xbranch-sync-with-repo` is disabled, but has cronjob builder/poller, so that the new jobs based on it, will be enabled at once and will start on their own.
 
+**NOTE**: you can use one setup for multiple template jobs e.g. one testing template `my-repo-test-Xbranch`, and one release template `my-repo-release-Xbranch` by setting `-DtemplateJobPrefix=my-repo-`. Both templates will be picked up, and one `my-repo-test-master` and one `my-repo-release-master` job will be created for the `master` branch.
+
 ## Change log
 
 ### Upcoming
